@@ -1,4 +1,10 @@
 #!/bin/bash
+# =============================================================================================
+# use together with th *vim-autoformat* plugin ( => https://github.com/Chiel92/vim-autoformat )
+# ---
+# let g:formatdef_eslint = '"eslint-formatter"'
+# let g:formatters_javascript = ['eslint']
+# =============================================================================================
 SRC=`mktemp`
 cat - >$SRC
 eslint -o /dev/null --no-color --fix $SRC &>/dev/null
