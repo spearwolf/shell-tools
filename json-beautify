@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ] || [ "$1" = '-h' ] || [ "$1" = '--help' ]
+then
+    cat <<HELP
+simple usage: $0 <file> [ -TABSIZE ]
+HELP
+    exit
+fi
+
+script=`cat <<EOF
+
+var len = process.argv.length;
+var m = process.argv[len - 1].match(/^-?(\d+)$/);
+
+var tabSize, fileIn;
+if (m) {
+    fileIn = process.argv[len - 2];
+    tabSize = parseInt(m[1], 10);
+} else {
+    fileIn = process.argv[len - 1];
+    tabSize = 4;
+}
+
+var fs = require('fs');
+try {
+    var stats = fs.lstatSync(fileIn);
+    if (!stats.isFile) {
+        throw "not a file!";
+    }
+} catch (err) {
+    console.error("oops.. could not read file '" + fileIn + "'");
+    process.exit(1);
+}
+
+/*
+console.log(JSON.stringify({
+    argv: process.argv,
+    m: m,
+    tabSize: tabSize,
+    fileIn: fileIn
+}, null, 4));
+*/
+
+fs.readFile(fileIn, function (err, str) {
+    var data = eval('json=(' + str + ')');
+    console.log(JSON.stringify(data, null, tabSize));
+});
+
+EOF`
+
+node -e "$script" $*
+
+# vim: ft=sh:
