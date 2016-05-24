@@ -1,4 +1,5 @@
 #!/bin/bash
+# more infos here --> https://blog.omgmog.net/post/compressing-pdf-from-your-mac-or-linux-terminal-with-ghostscript/
 if [ "$#" -eq 0 ]
 then
     echo "Usage: compresspdf [input file] [output file] [screen*|ebook|printer|prepress]"
