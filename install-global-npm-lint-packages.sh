@@ -1,0 +1,2 @@
+#!/bin/bash
+npm install -g npm@latest && npm install -g babel-eslint@latest csscomb@latest eslint-config-airbnb@latest eslint-plugin-import@latest eslint-plugin-jsx-a11y@latest eslint-plugin-react@latest eslint@latest flow-bin@latest grunt-cli@latest gulp-cli@latest htmlhint@latest jscs@latest jshint@latest json2yaml@latest jsonlint@latest pug-lint@latest sass-lint@latest standard@latest stylelint@latest typescript@latest
