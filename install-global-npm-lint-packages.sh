@@ -2,11 +2,11 @@
 npm install -g npm@latest
 
 INSTALL_NPM='npm install -g'
-YARN=$(which yarn)
-if [ -n "$YARN" ]
-then
-    INSTALL_NPM="$YARN global add"
-fi
+#YARN=$(which yarn)
+#if [ -n "$YARN" ]
+#then
+    #INSTALL_NPM="$YARN global add"
+#fi
 
 $INSTALL_NPM \
     babel-eslint@latest  \
@@ -29,4 +29,6 @@ $INSTALL_NPM \
     standard@latest  \
     stylelint@latest  \
     typescript@latest  \
-    prettier@latest
+    prettier@latest \
+    prettier-eslint@latest \
+    prettier-standard@latest
