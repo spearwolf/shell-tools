@@ -1,5 +1,5 @@
 #!/bin/bash
-npm install -g npm@latest
+#npm install -g npm@latest
 
 INSTALL_NPM='npm install -g'
 #YARN=$(which yarn)
@@ -9,26 +9,26 @@ INSTALL_NPM='npm install -g'
 #fi
 
 $INSTALL_NPM \
-    babel-eslint@latest  \
-    csscomb@latest  \
+    avn avn-nvm \
+    babel-eslint@latest \
+    csscomb@latest \
     eslint-config-airbnb@latest  \
     eslint-plugin-import@latest  \
     eslint-plugin-jsx-a11y@latest  \
     eslint-plugin-react@latest  \
-    eslint@latest  \
-    flow-bin@latest  \
-    grunt-cli@latest  \
-    gulp-cli@latest  \
-    htmlhint@latest  \
-    jscs@latest  \
-    jshint@latest  \
-    json2yaml@latest  \
-    jsonlint@latest  \
-    pug-lint@latest  \
-    sass-lint@latest  \
-    standard@latest  \
-    stylelint@latest  \
-    typescript@latest  \
-    prettier@latest \
-    prettier-eslint@latest \
-    prettier-standard@latest
+    eslint@latest \
+    flow-bin@latest \
+    htmlhint@latest \
+    json2yaml@latest \
+    jsonlint@latest \
+    prettier@latest prettier-eslint@latest prettier-standard@latest \
+    pug-lint@latest \
+    standard@latest \
+    stylelint@latest \
+
+    #sass-lint@latest \
+    #jscs@latest \
+    #jshint@latest \
+    #grunt-cli@latest \
+    #gulp-cli@latest \
+    #typescript@latest \
