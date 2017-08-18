@@ -18,14 +18,14 @@ $INSTALL_NPM \
     eslint-plugin-react@latest  \
     eslint@latest \
     flow-bin@latest \
-    htmlhint@latest \
     json2yaml@latest \
     jsonlint@latest \
     prettier@latest prettier-eslint@latest prettier-standard@latest \
-    pug-lint@latest \
     standard@latest \
     stylelint@latest \
 
+    #pug-lint@latest \
+    #htmlhint@latest \
     #sass-lint@latest \
     #jscs@latest \
     #jshint@latest \
