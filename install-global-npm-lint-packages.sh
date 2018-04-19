@@ -9,21 +9,25 @@ INSTALL_NPM='npm install -g'
 #fi
 
 $INSTALL_NPM \
-    avn avn-nvm \
     babel-eslint@latest \
     csscomb@latest \
+    eslint@latest \
     eslint-config-airbnb@latest  \
     eslint-plugin-import@latest  \
     eslint-plugin-jsx-a11y@latest  \
     eslint-plugin-react@latest  \
-    eslint@latest \
+    eslint-plugin-standard@latest  \
+    eslint-plugin-graphql \
     flow-bin@latest \
     json2yaml@latest \
     jsonlint@latest \
     prettier@latest prettier-eslint@latest prettier-standard@latest \
     standard@latest \
     stylelint@latest \
+    gatsby-cli@latest \
+    deepl-translator-cli@latest
 
+    # avn avn-nvm \
     #pug-lint@latest \
     #htmlhint@latest \
     #sass-lint@latest \
