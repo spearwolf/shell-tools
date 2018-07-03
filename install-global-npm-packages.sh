@@ -18,6 +18,7 @@ $INSTALL_NPM \
     eslint-plugin-react@latest  \
     eslint-plugin-standard@latest  \
     eslint-plugin-graphql \
+    graphql \
     flow-bin@latest \
     json2yaml@latest \
     jsonlint@latest \
