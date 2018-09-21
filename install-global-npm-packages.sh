@@ -19,6 +19,7 @@ $INSTALL_NPM \
     eslint-plugin-standard@latest  \
     eslint-plugin-graphql \
     graphql \
+    serve \
     flow-bin@latest \
     json2yaml@latest \
     jsonlint@latest \
