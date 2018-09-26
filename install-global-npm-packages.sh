@@ -17,12 +17,11 @@ $INSTALL_NPM \
     eslint-plugin-jsx-a11y@latest  \
     eslint-plugin-react@latest  \
     eslint-plugin-standard@latest  \
-    eslint-plugin-graphql@latest \
+    eslint-plugin-graphql@latest graphql@^0.13 \
     eslint-plugin-typescript@latest \
     gatsby-cli@latest \
-    graphql@latest \
-    typescript@latest \
-    tslint@latest \
+    postcss@latest \
+    typescript@latest typescript-eslint-parser@latest tslint@latest \
     serve@latest \
     flow-bin@latest \
     json2yaml@latest \
