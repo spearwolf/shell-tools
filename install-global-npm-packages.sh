@@ -29,6 +29,7 @@ $INSTALL_NPM \
     prettier@latest prettier-eslint@latest prettier-standard@latest \
     standard@latest \
     stylelint@latest \
+    lerna@latest \
     deepl-translator-cli@latest
 
     # avn avn-nvm \
