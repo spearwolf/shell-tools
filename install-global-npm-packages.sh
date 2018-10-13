@@ -30,6 +30,7 @@ $INSTALL_NPM \
     standard@latest \
     stylelint@latest \
     lerna@latest \
+    tern@latest \
     deepl-translator-cli@latest
 
     # avn avn-nvm \
