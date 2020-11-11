@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+[ -z "$1" ] && echo "usage: $0 <file>" && exit 1
+
+IN=$1
+OUT=$IN.enc
+
+echo "file-in: ${IN}"
+echo "file-out: ${OUT}"
+
+exec openssl enc -aes-256-cbc -salt -pbkdf2 -in $IN -out $OUT

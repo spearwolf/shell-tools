@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+[ -z "$1" ] && echo "usage: $0 <file-in> <file-out>" && exit 1
+[ -z "$2" ] && echo "usage: $0 <file-in> <file-out>" && exit 2
+
+IN=$1
+OUT=$2
+
+echo "file-in: ${IN}"
+echo "file-out: ${OUT}"
+
+exec openssl enc -aes-256-cbc -d -salt -pbkdf2 -in $IN -out $OUT

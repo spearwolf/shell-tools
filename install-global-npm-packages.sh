@@ -24,6 +24,7 @@ $INSTALL_NPM \
     standard@latest \
     stylelint@latest \
     lerna@latest \
+    gulp-cli@latest \
     tern@latest
 
     # deepl-translator-cli@latest \
