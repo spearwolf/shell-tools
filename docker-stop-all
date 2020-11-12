@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
-docker stop $(docker ps -q)
+RUNNING=$(docker ps -q)
+if [ -n "$RUNNING" ]; then
+  docker stop $RUNNING
+else
+  echo "There are no running containers that can be stopped."
+fi

@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
-docker rmi $(docker images -q)
+IMAGES=$(docker images -q)
+if [ -n "$IMAGES" ]; then
+  docker rmi $IMAGES
+else
+  echo "No docker images found."
+fi

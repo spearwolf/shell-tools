@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
-docker rm $(docker ps -a -q)
+CONTAINERS=$(docker ps -aq)
+if [ -n "$CONTAINERS" ]; then
+  docker rm $CONTAINERS
+else
+  echo "No containers found."
+fi

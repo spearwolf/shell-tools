@@ -1,2 +1,7 @@
 #!/bin/bash
-docker rmi $(docker images | grep "^<none>" | awk '{ print $3 }')
+UNTAGGED=$(docker images | grep "^<none>" | awk '{ print $3 }')
+if [ -n "$UNTAGGED" ]; then
+  docker rmi $UNTAGGED
+else
+  echo "No untagged images found."
+fi
