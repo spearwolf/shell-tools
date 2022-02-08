@@ -9,25 +9,24 @@ INSTALL_NPM='npm install -g'
 #fi
 
 $INSTALL_NPM \
-    babel-eslint@latest \
-    csscomb@latest \
     eslint@latest \
-    gatsby-cli@latest \
+    @babel/cli@latest @babel/core@latest @babel/eslint-parser@latest \
     postcss@latest \
     typescript@latest \
-    @typescript-eslint/parser \
-    serve@latest \
-    flow-bin@latest \
-    json2yaml@latest \
-    jsonlint@latest \
-    prettier@latest prettier-eslint@latest prettier-standard@latest \
+    prettier@latest \
     standard@latest \
     stylelint@latest \
-    lerna@latest \
     gulp-cli@latest \
-    tern@latest
 
+    # gatsby-cli@latest \
+    # lerna@latest \
+    # tern@latest
+    # jsonlint@latest \
+    # csscomb@latest \
+    # json2yaml@latest \
+    # babel-eslint@latest \
     # deepl-translator-cli@latest \
+    # prettier@latest prettier-eslint@latest prettier-standard@latest \
     # eslint-config-airbnb@latest \
     # eslint-plugin-react-hooks@latest \
     # eslint-plugin-import@latest \
@@ -36,13 +35,15 @@ $INSTALL_NPM \
     # eslint-plugin-standard@latest \
     # eslint-plugin-graphql@latest graphql@^0.13 \
     # eslint-plugin-typescript@latest \
+    # flow-bin@latest \
     # avn avn-nvm \
     # pug-lint@latest \
     # htmlhint@latest \
     # sass-lint@latest \
     # jscs@latest \
     # jshint@latest \
+    # serve@latest \
+    # @typescript-eslint/parser \
     # grunt-cli@latest \
-    # gulp-cli@latest \
     # tslint@latest \
 
