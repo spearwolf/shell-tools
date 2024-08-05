@@ -1,0 +1,111 @@
+#!/usr/bin/env python3
+
+import os
+import shutil
+import glob
+import re
+import sys
+
+nvim_dirs = [
+    '$HOME/.config/nvim',
+    '$HOME/.local/share/nvim',
+    '$HOME/.local/state/nvim',
+    '$HOME/.cache/nvim'
+]
+
+if len(sys.argv) < 2 or sys.argv[1] not in ['list', 'bak', 'restore', 'clean']:
+    print(f"""
+Usage: {sys.argv[0]} <command> [ <extension> ]
+
+Commands:
+  list                    list previous backup extensions
+  bak [ <extension> ]     backup current nvim directories (default ext is 'bak')
+  restore <extension>     restore previous backup
+  clean [ <extension> ]   just remove nvim directories
+""")
+    exit(1)
+
+command = sys.argv[1]
+
+if command == 'restore':
+    ext = '.' + sys.argv[2] if len(sys.argv) > 2 else ''
+    if not ext:
+        print("No backup extension provided")
+        exit(1)
+
+    for dir in nvim_dirs:
+        dir = os.path.expandvars(dir)
+        target = dir + ext
+
+        if os.path.exists(dir):
+            print(f"Removing current directory {dir}")
+            shutil.rmtree(dir)
+
+        if os.path.exists(target):
+            print(f"Restoring backup directory {target} to {dir}")
+            shutil.move(target, dir)
+
+    exit(0)
+
+if command == 'clean':
+    ext = '.' + sys.argv[2] if len(sys.argv) > 2 else ''
+
+    for dir in nvim_dirs:
+        dir = os.path.expandvars(dir)
+        target = dir + ext
+
+        if os.path.exists(target):
+            user_input = input(f"Remove directory {target}? [y/n] ")
+            if user_input.lower() != 'y':
+                print(f"Leaving directory untouched: {target}")
+                continue
+            print(f"Removing directory {target}")
+            shutil.rmtree(target)
+
+    exit(0)
+
+if command == 'list':
+    previous_extensions = os.path.expandvars('$HOME/.config/nvim.*')
+    files = glob.glob(previous_extensions)
+
+    if not files:
+        print("No previous backup directories found")
+        exit(0)
+
+    print("Found previous backup directories:")
+
+    ext_pattern = r".*nvim\.(.*)$"
+
+    for file in files:
+        match = re.match(ext_pattern, file)
+        if match:
+            print(f"- {match.group(1)}")
+
+    exit(0)
+
+if command == 'bak':
+    ext = sys.argv[2] if len(sys.argv) > 2 else 'bak'
+    ext = '.' + ext
+    print(f"Using backup extension: {ext}")
+
+    for dir in nvim_dirs:
+        dir = os.path.expandvars(dir)
+        target = dir + ext
+
+        if os.path.exists(dir):
+            if os.path.exists(target):
+                user_input = input(f"Override existing directory {target}? [y/n] ")
+                if user_input.lower() != 'y':
+                    print(f"Skipping {dir}")
+                    continue
+            print(f"Moving {dir} to {target}")
+            shutil.move(dir, target)
+            continue
+
+        if os.path.exists(target):
+            user_input = input(f"Removing previous backup directory {target}? [y/n] ")
+            if user_input.lower() != 'y':
+                print(f"Leaving previous backup directory untouched: {target}")
+                continue
+            print(f"Remove previous backup directory {target}")
+            shutil.rmtree(target)
