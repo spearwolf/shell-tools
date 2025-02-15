@@ -9,14 +9,17 @@ INSTALL_NPM='npm install -g'
 #fi
 
 $INSTALL_NPM \
+    npm@latest \
     eslint@latest \
-    typescript@latest \
+    corepack@latest \
+    tsc@latest \
     prettier@latest \
     stylelint@latest \
-    gulp-cli@latest \
     @vtsls/language-server@latest \
+    @astrojs/language-server \
     neovim@latest
 
+    # gulp-cli@latest \
     # postcss@latest \
     # standard@latest \
     # @babel/cli@latest @babel/core@latest @babel/eslint-parser@latest \
