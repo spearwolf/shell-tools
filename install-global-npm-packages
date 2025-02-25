@@ -14,6 +14,7 @@ $INSTALL_NPM \
     corepack@latest \
     tsc@latest \
     prettier@latest \
+    prettier-plugin-astro@latest \
     stylelint@latest \
     @vtsls/language-server@latest \
     @astrojs/language-server \
