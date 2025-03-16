@@ -12,14 +12,22 @@ $INSTALL_NPM \
     npm@latest \
     eslint@latest \
     corepack@latest \
-    tsc@latest \
+    typescript@latest \
+    typescript-language-server@latest \
     prettier@latest \
     prettier-plugin-astro@latest \
     stylelint@latest \
     @vtsls/language-server@latest \
     @astrojs/language-server \
+    yaml-language-server@latest \
+    @ansible/ansible-language-server@latest \
+    dockerfile-language-server-nodejs@latest \
+    @microsoft/compose-language-service@latest \
+    vscode-langservers-extracted@latest \
     neovim@latest
 
+    # tsc@latest \
+    #
     # gulp-cli@latest \
     # postcss@latest \
     # standard@latest \
