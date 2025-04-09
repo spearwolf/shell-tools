@@ -23,6 +23,7 @@ $INSTALL_NPM \
     @ansible/ansible-language-server@latest \
     dockerfile-language-server-nodejs@latest \
     @microsoft/compose-language-service@latest \
+    bash-language-server@latest \
     vscode-langservers-extracted@latest \
     neovim@latest
 
