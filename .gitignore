@@ -2,3 +2,4 @@ imgcat
 kubectl-tedd-canary
 kubectl
 minikube
+malicious-packages-results.txt
