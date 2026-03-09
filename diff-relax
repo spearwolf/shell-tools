@@ -14,9 +14,9 @@ FILE2=$2
 TMP1=$(mktemp)
 TMP2=$(mktemp)
 
-# Transformation: Leerzeilen entfernen (grep -v '^$') und sortieren
-grep -v '^\s*$' "$FILE1" | sort > "$TMP1"
-grep -v '^\s*$' "$FILE2" | sort > "$TMP2"
+# Transformation: Leerzeilen or Kommentare entfernen (grep -v '^$') und sortieren
+grep -v '^\s*$' "$FILE1" | grep -v '^\s*#' | sort > "$TMP1"
+grep -v '^\s*$' "$FILE2" | grep -v '^\s*#' | sort > "$TMP2"
 
 # Vergleich der Dateien mit diff
 echo "--- Vergleichsergebnis ---"
