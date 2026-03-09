@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Überprüfung, ob genau zwei Parameter übergeben wurden
+if [ "$#" -ne 2 ]; then
+    echo "Nutzung: $0 <datei1> <datei2>"
+    exit 1
+fi
+
+# Zuweisung der Dateinamen
+FILE1=$1
+FILE2=$2
+
+# Erstellung der temporären Dateien
+TMP1=$(mktemp)
+TMP2=$(mktemp)
+
+# Transformation: Leerzeilen entfernen (grep -v '^$') und sortieren
+grep -v '^\s*$' "$FILE1" | sort > "$TMP1"
+grep -v '^\s*$' "$FILE2" | sort > "$TMP2"
+
+# Vergleich der Dateien mit diff
+echo "--- Vergleichsergebnis ---"
+diff "$TMP1" "$TMP2"
+
+# Falls kein Unterschied besteht, eine kurze Info ausgeben
+if [ $? -eq 0 ]; then
+    echo "Keine Unterschiede gefunden (nach Sortierung und Entfernen von Leerzeilen)."
+fi
+
+# Aufräumen: Temporäre Dateien löschen
+rm "$TMP1" "$TMP2"
