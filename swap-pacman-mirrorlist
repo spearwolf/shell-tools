@@ -1,0 +1,24 @@
+#!/bin/bash
+
+if [ ! -f /etc/pacman.d/mirrorlist.pacnew ]; then
+  echo "Keine neue Mirrorlist gefunden."
+  exit 0
+fi
+
+if [ "$EUID" -ne 0 ]; then
+  echo "Keine Root-Rechte erkannt. Starte neu mit sudo..."
+  exec sudo "$0" "$@"
+fi
+
+if [ -f /etc/pacman.d/mirrorlist.pacnew ]; then
+  set -x
+  cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist-backup
+  cp /etc/pacman.d/mirrorlist.pacnew /etc/pacman.d/mirrorlist
+  cachyos-rate-mirrors
+  rm /etc/pacman.d/mirrorlist.pacnew
+  set +x
+  echo "Die Mirrorlist wurde erfolgreich aktualisiert und die alten Mirrorlist gesichert."
+else
+  echo "Keine neue Mirrorlist gefunden."
+fi
+
