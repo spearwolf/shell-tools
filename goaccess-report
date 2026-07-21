@@ -3,4 +3,4 @@ if [ "$#" -ne 2 ]; then
   echo "usage example: $0 access.log report.html"
   exit 1
 fi
-cat $1 | docker run --rm -i -e LANG=$LANG allinurl/goaccess -a -o html --log-format COMBINED - > $2
+docker run --rm -i -e LANG allinurl/goaccess -a -o html --log-format COMBINED - < "$1" > "$2"
