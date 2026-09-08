@@ -1,0 +1,2 @@
+#!/bin/bash
+claude --model opus --effort high --permission-mode auto "führe ein project audit durch"
