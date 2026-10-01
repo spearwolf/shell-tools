@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Usage: dpl "beliebiger text …"   (oder: echo "text" | dpl)
+# Übersetzt den Text via DeepL und gibt das Ergebnis in Kleinbuchstaben aus.
+set -o pipefail
+
+if (($#)); then
+  text="$*"
+else
+  text=$(cat)
+fi
+
+# Text über stdin übergeben, damit deepl ihn nie als Datei-/Verzeichnispfad
+# oder als Option (führendes "-") interpretiert.
+result=$(printf '%s' "$text" | deepl t) || exit $?
+
+# ${var,,} ist locale-aware und senkt auch Umlaute korrekt ab.
+printf '%s\n' "${result,,}"
